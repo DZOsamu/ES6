@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数</title>
+</head>
+
+<body>
+    <script>
+        /*
+        function add(a = 10, b = 20) {
+            return a + b;
+        }
+
+        console.log(add(1)); // 21
+        */
+
+        /*
+        function add(a, b = getVal(5)) {
+            return a + b;
+        }
+        function getVal(val) {
+            return val + 5
+        }
+        console.log(add(1)); // 11
+        */
+
+        /* // es5写法
+        function pick(obj) {
+            let result = Object.create(null)
+            for (let i = 1; i < arguments.length; i++) {
+                // console.log(arguments);
+                // console.log(arguments[i]);
+                result[arguments[i]] = obj[arguments[i]]
+            }
+            return result;
+        } */
+
+        /* // es6引入剩余参数：...+具名参数，如下...keys，解决了arguments的问题
+        function pick(obj, ...keys) {
+            // console.log(keys);
+            let result = Object.create(null)
+            for (let i = 0; i < keys.length; i++) {
+                result[keys[i]] = obj[keys[i]]
+            }
+            return result;
+        }
+        let book = {
+            title: 'es6教程',
+            author: 'little pony',
+            year: 2025
+        }
+        let bookData = pick(book, 'author', 'year');
+        console.log(bookData); */
+
+        /* function checkArgs(...args) {
+            console.log(args);
+            console.log(arguments);
+        }
+        checkArgs('a', 'b', 'c') */
+
+        /* const arr = [10, 80, 90, 60, 50, 100, 30, 70]
+        console.log(Math.max.apply(null, arr));
+        console.log(Math.max(...arr)); */
+
+        /* let add = function (a, b) {
+            return a + b;
+        }
+        let add = (a, b) => {
+            return a + b;
+        }
+        console.log(add(10, 20)); */
+        /* let add = val => val;
+        let add = val => val + 1;
+        let add = (val1, val2) => val1 + val2;
+        console.log(add(15));
+        console.log(add(15, 1)); */
+        /* let hi = () => 'hello world' + 123;
+        console.log(hi()); */
+        /* let getObj = id => {
+            return {
+                id: id,
+                name: 'hyw'
+            }
+        }
+        let getObj = id => ({ id: id, name: 'hyw' });
+        let obj = getObj(1)
+        console.log(obj); */
+        /* let fn = (function () {
+            return function () {
+                console.log('hello es6');
+            }
+        })();
+        let fn = (() => {
+            return () => {
+                console.log('hello es6');
+
+            }
+        })();
+        fn(); */
+        
+    </script>
+</body>
+
+</html>
