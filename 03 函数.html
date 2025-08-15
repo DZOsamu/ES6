@@ -100,7 +100,44 @@
             }
         })();
         fn(); */
-        
+
+
+        /* let PageHandle = {
+            id: 123,
+            // init: function () {
+            //     // function函数有this指向，将this指向了document
+            //     document.addEventListener('click', function (event) {
+            //         // this.doSomeThings is not a function
+            //         console.log(this);
+            //         this.doSomeThings(event.type)
+            //     }, false)
+            // },
+            init: function () {
+                // 箭头函数没有this指向，只能通过作用域链向上查找来确定
+                // 向上查找this指向PageHandle，执行PageHandle的doSomeThings函数
+                // 如果init也用箭头函数，this向上查找到定义PageHandle的作用域也就是window，报错
+                document.addEventListener('click', (event) => {
+                    console.log(this);
+                    this.doSomeThings(event.type)
+                }, false)
+            },
+            doSomeThings: function () {
+                console.log(`事件类型：&{type}，当前id：${this.id}`);
+            }
+        }
+        PageHandle.init() */
+
+        /* let getVal = (a, b) => {
+            // arguments is not defined
+            // console.log(arguments);
+            return a + b;
+        }
+        console.log(getVal(1, 2)); */
+
+        // let Person = () => { };
+        let Person = function () { };
+        console.log(Person);
+        let p = new Person;
     </script>
 </body>
 
