@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>解构赋值</title>
+</head>
+
+<body>
+  <script>
+    let node = {
+      type: 'string',
+      name: 'hyw'
+    }
+    /* es5
+    let type = node.type
+    let name = node.name */
+
+    // 完全解构
+    let { type, name } = node;
+    console.log(type, name);
+    // 相当于把对象内部的属性拿出来，属性在对象外部可以直接使用了
+    // 注意属性在对象内外名称一致
+
+    // 不完全解构 可以只取部分属性
+    let obj = {
+      a: {
+        name: '张三'
+      },
+      b: [],
+      c: 'hello world'
+    }
+    // let { a } = obj;
+    // console.log(a);
+
+    // 剩余运算符
+    let { c, ...res } = obj;
+    console.log(res);
+    // ...res将剩余属性放到一个对象中
+
+    // 默认值
+    let { a, b = 10 } = { a: 20 }
+    console.log(a, b);
+
+    // 数组解构 解构出来也应该是数组，注意声明时用[]
+    let arr = [1, 2, 3]
+    let [m, n] = arr;
+    console.log(m, n);
+
+    // 嵌套解构
+    let [o, [p], q] = [11, [22], 44]
+    console.log(o, p, q);
+  </script>
+</body>
+
+</html>
