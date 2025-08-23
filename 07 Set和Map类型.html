@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Set和Map类型</title>
+</head>
+
+<body>
+  <script>
+    /* // 无重复值的有序列表
+    let setArr = new Set();
+
+    // 添加add()
+    setArr.add('1'); //add()一次只能添加一个，多个默认只添加最左边的
+    // setArr.add(2, 3); // Set(2) {'1', 2}
+    setArr.add(2); //已有2 Set(2) {'1', 2}
+    setArr.add(['hello', 11, 22]); //数组也可以添加 Set(3) {'1', 2, Array(3)}
+
+    // 删除delete()
+    setArr.delete('1')
+
+    // 校验has()
+    console.log(setArr.has(2));
+
+    // 长度
+    console.log(setArr.size); //2
+    console.log(setArr); */
+
+    /* // forEach() 数组每个元素都执行一次回调函数
+    setArr.forEach((value, key) => {
+      console.log(value); //每次迭代的值
+      console.log(key); //每次迭代的键，始终与value相同
+    }) */
+
+    // 将set转成数组
+    let set1 = new Set([1, 2, 2, 3, 4, 5, 5, 5]);
+    console.log(set1);
+    let arr = [...set1]; // 扩展运算符...
+    console.log(arr);
+
+  </script>
+</body>
+
+</html>
