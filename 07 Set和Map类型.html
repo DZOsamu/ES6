@@ -34,12 +34,33 @@
       console.log(key); //每次迭代的键，始终与value相同
     }) */
 
-    // 将set转成数组
+    /* // 将set转成数组
     let set1 = new Set([1, 2, 2, 3, 4, 5, 5, 5]);
     console.log(set1);
     let arr = [...set1]; // 扩展运算符...
-    console.log(arr);
+    console.log(arr); */
 
+    /* // 强引用Set
+    let set2 = new Set(), obj = { a: 1 };
+    set2.add(obj);
+    // 移除原始引用
+    obj = null;
+    console.log(set2); //Set集合保留了原引用
+    // 可以用展开运算符将Set集合转换成数组并从数组的首个元素取出原引用
+    obj = [...set2] // [{ a: 1 }]
+    console.log(obj[0]); // { a: 1 } */
+
+    // 弱引用WeakSet
+    let set3 = new WeakSet(), obj = { a: 1 };
+    set3.add(obj);
+    console.log(set3.has(obj)); // true
+    obj = null; // 一个变量被置为null，就意味着这个变量的内存可以被回收了
+    console.log(set3.has(obj)); // false
+    // JS中有一种垃圾回收策略叫引用次数，这里set使用了obj，但因为是弱引用所以次数不会加1，又没有其他地方使用obj，JS就会回收obj，set就失去了值
+    // 1.只能传入对象
+    // 2.不可迭代
+    // 3.没有forEach()
+    // 4.没有size属性
   </script>
 </body>
 
