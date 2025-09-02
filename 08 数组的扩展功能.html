@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>数组的扩展功能</title>
+</head>
+
+<body>
+  <ul>
+    <li>11</li>
+    <li>22</li>
+    <li>33</li>
+  </ul>
+
+  <script>
+    // 1.from() 将伪数组转换成真正的数组
+    function add() {
+      // console.log(arguments);
+      // es5写法
+      // let arr = [].slice.call(arguments);
+      // es6写法
+      let arr = Array.from(arguments);
+      console.log(arr);
+    }
+    add(1, 2, 3);
+
+    let lis = document.querySelectorAll('li');
+    // console.log(lis);
+    // console.log(Array.from(lis));
+    // 扩展运算符 也可以将伪数组转换成真正的数组
+    // console.log([...lis]);
+
+    // from() 还可以接受第二个参数，用来对每个元素进行处理
+    let liContents = Array.from(lis, ele => ele.textContent);
+    console.log(liContents);
+
+    // 2.of() 将任意数据类型转换到数组
+    console.log(Array.of(200, 4, [4, 24], { age: 21 }));
+
+    // 3.copywithin() 不常用
+    console.log([1, 2, 3, 7, 8, 9].copyWithin(0, 3));
+    // 三个参数 (目标位置，替换元素起始位置，替换元素结束位置)
+    // 起始结束可省略，起始默认是0，结束默认是数组长度
+    // 目标位置<0，实际上要加上数组长度
+
+    // 4.find() findIndex() 接收一个回调函数，找出符合条件的第一个数组元素（索引）
+    let num = [1, 2, -10, -20, 9, 2].find(n => n < 0);
+    let numIndex = [1, 2, -10, -20, 9, 2].findIndex(n => n < 0);
+    console.log(num);
+    console.log(numIndex);
+  </script>
+</body>
+
+</html>
