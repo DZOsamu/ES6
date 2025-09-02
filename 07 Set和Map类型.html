@@ -50,7 +50,7 @@
     obj = [...set2] // [{ a: 1 }]
     console.log(obj[0]); // { a: 1 } */
 
-    // 弱引用WeakSet
+    /* // 弱引用WeakSet
     let set3 = new WeakSet(), obj = { a: 1 };
     set3.add(obj);
     console.log(set3.has(obj)); // true
@@ -60,7 +60,24 @@
     // 1.只能传入对象
     // 2.不可迭代
     // 3.没有forEach()
-    // 4.没有size属性
+    // 4.没有size属性 */
+
+    // Map类型是键值对的有序列表，键和值是任意类型
+    let map = new Map();
+    map.set('name', 'hyw');
+    map.set('age', '21');
+    console.log(map.get('age'));
+    map.delete('name');
+    console.log(map);
+    map.clear();
+    // map.set(['a', [1, 2, 3]], 'hello')
+    console.log(map);
+
+    let m = new Map([
+      ['a', 1],
+      ['b', 2]
+    ]);
+    console.log(m);
   </script>
 </body>
 
