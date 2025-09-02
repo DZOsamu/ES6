@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Set类型</title>
+</head>
+
+<body>
+  <script>
+    /* // 无重复值的有序列表
+    let setArr = new Set();
+
+    // 添加add()
+    setArr.add('1'); //add()一次只能添加一个，多个默认只添加最左边的
+    // setArr.add(2, 3); // Set(2) {'1', 2}
+    setArr.add(2); //已有2 Set(2) {'1', 2}
+    setArr.add(['hello', 11, 22]); //数组也可以添加 Set(3) {'1', 2, Array(3)}
+
+    // 删除delete()
+    setArr.delete('1')
+
+    // 校验has()
+    console.log(setArr.has(2));
+
+    // 长度
+    console.log(setArr.size); //2
+    console.log(setArr); */
+
+    /* // forEach() 数组每个元素都执行一次回调函数
+    setArr.forEach((value, key) => {
+      console.log(value); //每次迭代的值
+      console.log(key); //每次迭代的键，始终与value相同
+    }) */
+
+    /* // 将set转成数组
+    let set1 = new Set([1, 2, 2, 3, 4, 5, 5, 5]);
+    console.log(set1);
+    let arr = [...set1]; // 扩展运算符...
+    console.log(arr); */
+
+    /* // 强引用Set
+    let set2 = new Set(), obj = { a: 1 };
+    set2.add(obj);
+    // 移除原始引用
+    obj = null;
+    console.log(set2); //Set集合保留了原引用
+    // 可以用展开运算符将Set集合转换成数组并从数组的首个元素取出原引用
+    obj = [...set2] // [{ a: 1 }]
+    console.log(obj[0]); // { a: 1 } */
+
+    /* // 弱引用WeakSet
+    let set3 = new WeakSet(), obj = { a: 1 };
+    set3.add(obj);
+    console.log(set3.has(obj)); // true
+    obj = null; // 一个变量被置为null，就意味着这个变量的内存可以被回收了
+    console.log(set3.has(obj)); // false
+    // JS中有一种垃圾回收策略叫引用次数，这里set使用了obj，但因为是弱引用所以次数不会加1，又没有其他地方使用obj，JS就会回收obj，set就失去了值
+    // 1.只能传入对象
+    // 2.不可迭代
+    // 3.没有forEach()
+    // 4.没有size属性 */
+  </script>
+</body>
+
+</html>
