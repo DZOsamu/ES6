@@ -15,7 +15,7 @@
   </ul>
 
   <script>
-    // 1.from() 将伪数组转换成真正的数组
+    /* // 1.from() 将伪数组转换成真正的数组
     function add() {
       // console.log(arguments);
       // es5写法
@@ -34,22 +34,52 @@
 
     // from() 还可以接受第二个参数，用来对每个元素进行处理
     let liContents = Array.from(lis, ele => ele.textContent);
-    console.log(liContents);
+    console.log(liContents); */
 
     // 2.of() 将任意数据类型转换到数组
-    console.log(Array.of(200, 4, [4, 24], { age: 21 }));
+    // console.log(Array.of(200, 4, [4, 24], { age: 21 }));
 
     // 3.copywithin() 不常用
-    console.log([1, 2, 3, 7, 8, 9].copyWithin(0, 3));
+    // console.log([1, 2, 3, 7, 8, 9].copyWithin(0, 3));
     // 三个参数 (目标位置，替换元素起始位置，替换元素结束位置)
     // 起始结束可省略，起始默认是0，结束默认是数组长度
     // 目标位置<0，实际上要加上数组长度
 
-    // 4.find() findIndex() 接收一个回调函数，找出符合条件的第一个数组元素（索引）
+    /* // 4.find() findIndex() 接收一个回调函数，找出符合条件的第一个数组元素（索引）
     let num = [1, 2, -10, -20, 9, 2].find(n => n < 0);
     let numIndex = [1, 2, -10, -20, 9, 2].findIndex(n => n < 0);
     console.log(num);
-    console.log(numIndex);
+    console.log(numIndex); */
+
+    /* // 5.entries() keys() values() 返回一个迭代器，可以使用for...of循环进行遍历
+    console.log(['a', 'b', 'c'].keys()); // >Array Iterator {}
+
+    // 键遍历
+    for (let index of ['a', 'b', 'c'].keys()) {
+      console.log(index);
+    }
+    // 值遍历
+    for (let ele of ['a', 'b', 'c'].values()) {
+      console.log(ele);
+    }
+    // 键值对遍历
+    for (let [index, ele] of ['a', 'b', 'c'].entries()) {
+      console.log(index, ele);
+    }
+
+    let arr = ['a', 'b', 'c'];
+    let it = arr.entries();
+    console.log(it.next().value); // [0,'a']
+    console.log(it.next().value); // [1,'b']
+    console.log(it.next().value); // [2,'c']
+    console.log(it.next().value); // undefined */
+
+    // 6.includes() 返回一个布尔值，判断一个数组是否包含一个指定的值
+    console.log([1, 2, 3].includes(3));
+    console.log([1, 2, 3].includes('3'));
+    // 之前有indexOf() 有返回索引，没有返回-1
+    console.log([1, 2, 3].indexOf(1));
+    console.log([1, 2, 3].indexOf('3'));
   </script>
 </body>
 
