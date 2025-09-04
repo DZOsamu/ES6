@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>生成器</title>
+</head>
+
+<body>
+  <script>
+    // Generator 生成器
+    // 和普通函数区别：
+    // 1.function后面，函数名之前有个*
+    // 2.只能在函数内部使用yield表达式，让函数挂起，改变执行流
+    /* function* fn() {
+      console.log('one');
+      yield 2;
+      console.log('two');
+      yield 3;
+      console.log('end');
+    }
+    // 返回一个遍历器对象，可以调用next()
+    let f = fn();
+    console.log(f.next());
+    console.log(f.next());
+    console.log(f.next());
+    // generator函数 分段执行
+    // yield语句 暂停执行
+    // next() 恢复执行 */
+
+    /* function* fn() {
+      console.log('start');
+      let x = yield 2;
+      console.log('one:' + x);
+      let y = yield 3;
+      console.log('two:' + y);
+      // console.log('total:' + (x + y));
+      return x + y;
+    }
+    let f = fn();
+    // 生成器最初没有产生任何内容，第一次调用next传入的值会被丢弃
+    console.log(f.next());
+    // next(value) value将作为yield表达式的结果
+    // 即在let x = yield 2;中，value会被分配给x
+    console.log(f.next(20));
+    console.log(f.next(30));
+    // console.log(f.return(100));  // 一般直接在函数里return */
+
+    // 使用场景：为不具备Interator接口的对象提供遍历操作
+    function* objEntries(obj) {
+      // 获取对象所有的key保存到数组[name, age]
+      const objKeys = Object.keys(obj);
+      for (const objKey of objKeys) {
+        yield [objKey, obj[objKey]]
+      }
+    }
+
+    const obj = {
+      name: 'hyw',
+      age: 21
+    }
+    // 为对象定义迭代器，该迭代器可被for...of循环使用
+    obj[Symbol.iterator] = objEntries;
+    console.log(obj);
+
+    for (let [key, value] of objEntries(obj)) {
+      console.log(`${key}:${value}`);
+    }
+  </script>
+</body>
+
+</html>
